@@ -1,0 +1,42 @@
+{
+  "name": "dimer-tree-react",
+  "version": "1.0.0",
+  "description": "Render dimer api content AST to HTML",
+  "main": "index.js",
+  "scripts": {
+    "mrm": "mrm --preset=@adonisjs/mrm-preset",
+    "pretest": "npm run lint",
+    "test": "japa",
+    "commit": "git-cz",
+    "lint": "standard"
+  },
+  "author": "virk",
+  "license": "MIT",
+  "devDependencies": {
+    "@adonisjs/mrm-preset": "^1.0.10",
+    "@dimerapp/markdown": "^3.0.0",
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "dedent": "^0.7.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "japa": "^1.0.6",
+    "japa-cli": "^1.0.1",
+    "mrm": "^1.2.1",
+    "pkg-ok": "^2.2.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "standard": "^11.0.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "nyc": {
+    "exclude": [
+      "test",
+      "japaFile.js"
+    ]
+  }
+}
