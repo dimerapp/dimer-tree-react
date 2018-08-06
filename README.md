@@ -36,14 +36,41 @@ yarn add dimer-tree-react
 After installation, import the module and use it as follows.
 
 ```js
+import React from 'react'
 import dimerTree from 'dimer-tree-rect'
 
-render () {
-  return (
-    <div>
-      ${ tree(markdownAST) }
-    </div>
-  )
+class Doc extends React.Component {
+  render () {
+    return (
+      <div>
+        ${ tree(markdownAST) }
+      </div>
+    )
+  }
+}
+```
+
+### Returning custom components
+You can also return custom elements or components for certain AST nodes.
+
+```js
+import React from 'react'
+import dimerTree from 'dimer-tree-react'
+
+class Doc extends React.Component {
+  processNode (node) {
+    if (node.tag === 'div' && node.props.className === 'tabs') {
+      return <Tabs node={node} />
+    }
+  }
+
+  render () {
+    return (
+      <div>
+        ${ tree(markdownAST, this.processNode) }
+      </div>
+    )
+  }
 }
 ```
 
