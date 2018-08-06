@@ -13,6 +13,7 @@ const Enzyme = require('enzyme')
 const Adapter = require('enzyme-adapter-react-16')
 const Markdown = require('@dimerapp/markdown')
 const dedent = require('dedent')
+const React = require('React')
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -42,9 +43,9 @@ test.group('Tree', (assert) => {
     `
 
     const json = await (new Markdown(template)).toJSON()
-    const output = tree(json.contents, function (node, createElement, render) {
+    const output = tree(json.contents, function (node, render) {
       if (node.tag === 'li') {
-        return createElement('li', Object.assign(node.props, { className: 'foo' }), node.children.map(render))
+        return React.createElement('li', Object.assign(node.props, { className: 'foo' }), node.children.map(render))
       }
     })
 

@@ -36,7 +36,7 @@ function processNode (node, counter, processFn) {
    * Invoke processFn to see if they want to render custom elements
    * or components
    */
-  const output = processFn(node, React.createElement, (child) => processNode(child, counter, processFn))
+  const output = processFn(node, (child) => processNode(child, counter, processFn))
 
   /**
    * If they return explicit false, then skip the node
